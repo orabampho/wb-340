@@ -10,7 +10,7 @@
 
 var http = require("http");
 function processRequest(req, res) {
-    var body = "Dreaming Takes Courage!";
+    var body = "Dreaming involves risk, so you need to be courageous as you venture into the unknown.";
         var contentLength = body.length;
         res.writeHead(200, {
             'Content-Length': contentLength,
