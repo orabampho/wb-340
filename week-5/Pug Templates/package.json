@@ -1,0 +1,9 @@
+{
+    "name": "Pug Templates",
+    "author": "Professor Krasso",
+    "private": true,
+    "dependencies": {
+        "express": "^4.17.2",
+        "pug": "^3.0.2"
+    }
+}
