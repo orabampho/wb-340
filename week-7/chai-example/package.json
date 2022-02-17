@@ -1,0 +1,11 @@
+{
+    "name": "chai-example",
+    "author": "Orawan Rabampho",
+    "private": true,
+    "version": "0.0.1",
+    "dependencies": 
+    {},
+    "scripts": {
+      "test": "mocha"
+    }
+  }
