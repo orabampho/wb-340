@@ -13,6 +13,10 @@ var http = require("http");
 var logger = require("morgan");
 var helmet = require("helmet");
 var path = require("path");
+var bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
+var csrf = require("csurf");
+
 
 //required for mongoose
 var mongoose = require("mongoose");
@@ -33,16 +37,56 @@ db.once("open", function(){
     console.log("Application connected to MongoDB Atlas Cluster");
 });
 
+/* Security - setup csrf protection */
+var csrfProtection = csrf({cookie: true});
+
+
 var app = express();
+
+//morgan logger
+app.use(logger("short"));
+//body parser
+app.use(
+    bodyParser.urlencoded({
+        extended: true
+    })
+);
+
+//cookie parser
+app.use(cookieParser());
+//helmet
+app.use(helmet.xssFilter());
+//csrf protection
+app.use(csrfProtection);
+
+/** 
+ * intercepts all incoming requests and adds a csrf token to the response.
+*/
+app.use(function(req, res, next){
+    var token = req.csrfToken();
+    res.cookie("XSRF-TOKEN", token);
+    res.locals.csrfToken = token;
+    next();
+});
+
+/**
+ * Sets up the view engine, view's directory path, and the server port.
+ */
+
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-app.use(logger("short"));
-app.use(helmet.xssFilter());
 
 app.get("/", function(request, response){
     response.render("index",{
         title: "Home page",
         message: "XSS Prevention Example"
+    });
+});
+
+app.get("/new", function(request, response){
+    response.render("new", {
+        title: "New Entry Page",
+        message: "New Entry",
     });
 });
 
@@ -64,6 +108,18 @@ app.get("/view", function (request, response){
     });
 });
 
+/**
+ * Description: Processes a form submission.
+ * Type: HttpPost
+ * Request: textName
+ * Response: index.ejs
+ * URL: localhost:8080/process
+ */
+app.post("/process", function(request, response){
+    //console.log(request.body.txtName);
+    console.log(request.body.txtName);
+    response.redirect("/");
+});
 
 http.createServer(app).listen(8080, function(){
     console.log("Application started on port 8080!");

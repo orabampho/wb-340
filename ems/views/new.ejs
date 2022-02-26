@@ -7,4 +7,43 @@ Modified By: Orawan Rabampho
 Description: 
 =================================================
 -->
-<p>Data entry page</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Include header. -->
+<%- include('header'); -%>
+
+<body>
+    <!-- Include navbar. -->
+    <%- include('navbar'); -%>
+
+    <!--main div to hold all content-->
+    <div role="main" class="container">
+        <br/><br/>
+        <h2><%= message %></h2>
+
+    <!--form to add new employee first and last name-->
+        <form method="post" action="/process">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input name="firstName" type="text" id="firstName" name="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input name="lastName" type="text" id="lastName" name="lastName">
+            </div>
+            <div class="form-group">
+                <!--CSRF token-->
+                <input name="_csrf" value="<% csrfToken %>" type="hidden">
+                <button class="btn btn-primary float-right" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+<br>
+<!--include footer-->
+<div >
+  <%- include ('footer'); -%>
+</div>    
+</body>
+</html>
