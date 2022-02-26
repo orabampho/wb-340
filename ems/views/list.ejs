@@ -7,5 +7,41 @@ Modified By: Orawan Rabampho
 Description: Employee list file.
 =================================================
 -->
+<!DOCTYPE html>
+<html lang="en">
 
-<p>Tabular view of employee records</p>
+
+<head>
+  <%- include ('header'); %>
+</head>
+
+<body>
+
+
+  <%- include ('navbar'); %>
+
+  <div class="bg-image d-flex justify-content-center align-items-center" style="background-image: url('https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+         height: 100vh;
+         background-size: cover;">
+
+    <!--container for main page-->
+    <div role="main" class="container" style="width: Auto;">
+
+      <br>
+      <!--heading-->
+      <div class="mb-3 h2">
+        <h1 style="text-align: center;">Orawan Rabampho's Employee System</h1>
+        <p>Tabular view of employee records - /list</p>
+      </div>
+    </div>      
+        
+  <!--include footer-->
+  <div>
+    <%- include ('footer'); -%>
+  </div>
+
+
+  </div>
+</body>
+
+</html>

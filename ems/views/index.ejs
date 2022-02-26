@@ -29,66 +29,51 @@
           <h3>Please choose one of the following:</h3>
         </div>
 
-<!--Add new employee option.-->
+        <!--Add new employee option.-->
 
-<div class="row">
+        <div class="row">
 
-  <div class="col-sm-4">
-    <div class="card shadow p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h2 class="card-title">Add New Employee</h2>
-        <h5 class="card-text">Add new employee information and crate new user.</h5>
-        <a href="/new" class="btn btn-dark">Add New Employee</a>
+          <div class="col-sm-4">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+              <div class="card-body">
+                <h2 class="card-title">Add New Employee</h2>
+                <h5 class="card-text">Add new employee information and crate new user.</h5>
+                <a href="/new" class="btn btn-dark">Add New Employee</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+              <div class="card-body">
+                <h2 class="card-title">Employee List</h2>
+                <h5 class="card-text">View a list of all employees in the database.</h5>
+                <a href="/list" class="btn btn-dark">Employee List</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="card shadow p-3 mb-5 bg-white rounded">
+              <div class="card-body">
+                <h2 class="card-title">Employee Records</h2>
+                <h5 class="card-text">View employees record in the database (read-only).</h5>
+                <a href="/view" class="btn btn-dark">View Record</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="col-sm-4">
-    <div class="card shadow p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h2 class="card-title">Employee List</h2>
-        <h5 class="card-text">View a list of all employees in the database.</h5>
-        <a href="/list" class="btn btn-dark">Employee List</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
-    <div class="card shadow p-3 mb-5 bg-white rounded">
-      <div class="card-body">
-        <h2 class="card-title">Employee Records</h2>
-        <h5 class="card-text">View employees record in the database (read-only).</h5>
-        <a href="/view" class="btn btn-dark">View Record</a>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>      
-    </div> 
-  </div>     
   <!--include footer-->
   <div>
-      <%- include ('footer'); -%>
+    <%- include ('footer'); -%>
   </div>
 
 
-</div> 
+  </div>
 </body>
+
 </html>
