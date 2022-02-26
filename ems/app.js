@@ -10,8 +10,9 @@ Description: EMS
 
 var express = require("express");
 var http = require("http");
-var path = require("path");
 var logger = require("morgan");
+var helmet = require("helmet");
+var path = require("path");
 
 //required for mongoose
 var mongoose = require("mongoose");
@@ -36,10 +37,12 @@ var app = express();
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(logger("short"));
+app.use(helmet.xssFilter());
 
 app.get("/", function(request, response){
     response.render("index",{
-        title: "Home page"
+        title: "Home page",
+        message: "XSS Prevention Example"
     });
 });
 
