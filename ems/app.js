@@ -90,11 +90,6 @@ app.get("/new", function(request, response){
     });
 });
 
-app.get("/list", function(request, response){
-    response.render("list", {
-        title: "Tabular view of employee records",
-    });
-});
 
 app.get("/new", function(request, response){
     response.render("new", {
@@ -118,8 +113,47 @@ app.get("/view", function (request, response){
 app.post("/process", function(request, response){
     //console.log(request.body.txtName);
     console.log(request.body.txtName);
+    
+    if (!request.body.firstName) {
+    res.status(400).send("You must enter a first name.");
+    return;
+    }
+
+    if (!request.body.lastName){
+        response.status(400).send("You must enter a last name.");
+        return;
+    }
+
+    var firstName = request.body.firstName;
+    var lastName = request.body.lastName;
+
+    //create a employee model 
+    var employee = new Employee({
+        firstName: firstName,
+        lastName: lastName
+    });
+
+    //save
+    employee.save(function (error){
+        if (error) throw error;
+        console.log(firstName + lastName + "your entry is saved!")
+    });
+
     response.redirect("/");
 });
+
+//Employee listing page.
+app.get("/list", function(request, response){
+    Employee.find ({}, function(error, employee) {
+    if (error) throw error;
+    response.render("list", {
+    title: "Employee List",
+    employee: employee
+        });
+    }); 
+});
+
+
 
 http.createServer(app).listen(8080, function(){
     console.log("Application started on port 8080!");
