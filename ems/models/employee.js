@@ -13,13 +13,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //employee schema
-let employeeSchema = new Schema({
+let EmployeeSchema = new Schema({
     firstName: { type: String, required: true},
     lastLast: { type: String, required: true}
 });
 
 //define the employee model
-var Employee = mongoose.model("Employee", employeeSchema);
+let Employee = mongoose.model("Employee", EmployeeSchema);
 
 //expose the employee to calling files
 module.exports = Employee;
