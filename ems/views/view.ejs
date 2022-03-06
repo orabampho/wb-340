@@ -23,11 +23,23 @@ Description: Employee record.
          background-size: cover;">
 
         <!--container for main page-->
-        <div role="main" class="container">
+        <div role="main" class="container" style="width: 50%;">
+            <br/><br/>
 
             <h2>
                 Employee Records
             </h2>
+
+            <div class="form-group">
+                <label for="txtFirstName">First Name:</label>
+                <input type="text" class="form=control" id="txtFirstName" value="<%= employee[0].firstName %>" name="txtFirstName" />
+                <br>
+                <label for="txtLastName">Last Name:</label>
+                <input type="text" class="form=control" id="txtLastName" value="<%= employee[0].lastName %>" name="txtLastName" />
+                <br>
+            </div>
+                <br/><br/>
+                <href="/list">Return to Employees</href>
           
         </div>
         <!--include footer-->

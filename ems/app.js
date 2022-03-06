@@ -130,6 +130,24 @@ app.get("/list", function(request, response) {
     });
 });
 
+//get view.ejs for employee query
+app.get("/view/:queryName", function(request, response){
+    var queryName = request.params.queryName;
+
+    Employee.find({'firstName': queryName}, function(error, employee){
+        if(error) throw error;
+        if(employee.length>0){
+            response.render("view",{
+                employee: employee
+            })
+        }
+        else {
+            response.redirect('/list');
+        }
+    });
+});
+
+
 //create server and listen on port 8080
 http.createServer(app).listen(app.get("port"), function() {
     console.log('Application started and listening on port %s', + app.get("port"))
