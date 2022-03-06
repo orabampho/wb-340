@@ -29,17 +29,20 @@ Description: Employee record.
             <h2>
                 Employee Records
             </h2>
-
+            <br>
             <div class="form-group">
                 <label for="txtFirstName">First Name:</label>
                 <input type="text" class="form=control" id="txtFirstName" value="<%= employee[0].firstName %>" name="txtFirstName" />
-                <br>
+                <br><br>
+            </div>
+            <div>
                 <label for="txtLastName">Last Name:</label>
                 <input type="text" class="form=control" id="txtLastName" value="<%= employee[0].lastName %>" name="txtLastName" />
                 <br>
             </div>
-                <br/><br/>
-                <href="/list">Return to Employees</href>
+                <br/>
+                <a href="/list" class="btn btn-dark">Return to Employees</href>
+              
           
         </div>
         <!--include footer-->
